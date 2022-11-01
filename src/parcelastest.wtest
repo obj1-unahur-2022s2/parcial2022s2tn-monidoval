@@ -1,2 +1,46 @@
 import parcelas.*
+import plantas.*
+
+describe "primer test de parcelas"{
+	
+	const parcelaE1 = new ParcelaEcologica (ancho= 20, largo = 1, horasDeSol = 8)
+	const soja2 = new Soja (altura = 2, anioDeObtencion = 2010)
+	const soja3 = new Soja (altura = 1.5, anioDeObtencion = 2009)
+	const soja4 = new Soja (altura = 1.8, anioDeObtencion = 2008)
+	const soja5 = new Soja (altura = 1.3, anioDeObtencion = 2007)
+	const soja6 = new Soja (altura = 1.7, anioDeObtencion = 2010)
+	
+	method initialize(){ 
+			parcelaE1.plantar(soja2)
+			parcelaE1.plantar(soja3)
+			parcelaE1.plantar(soja4)
+			parcelaE1.plantar(soja5)
+			}
+	
+	test "parcelaE1, superficie 20 , cantidad máxima de plantas tolerada 4, no se puede plantar otra planta"{	
+					
+		 	assert.equals(20, parcelaE1.superficie())
+		 	assert.equals(4, parcelaE1.cantidadMaxima())	   		
+    		
+    		assert.throwsExceptionWithMessage("no se puede plantar", {parcelaE1.plantar(soja6)})	
+		 
+	
+	}
+		
+		
+	    
+	   
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 

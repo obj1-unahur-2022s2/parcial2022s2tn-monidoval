@@ -1,17 +1,73 @@
 import plantas.*
+
 describe "Test de Plantas"  {
 	
-	const menta1 = new Menta()
+	const menta1 = new Menta(altura = 1, anioDeObtencion = 2022)
+	const menta2 = new Menta(altura = 0.3, anioDeObtencion = 2022)
+	const soja1 = new Soja (altura = 0.6, anioDeObtencion = 2009)
+	const quinoa1= new Quinoa (altura = 1, anioDeObtencion = 2010, solToleradoPorCepa= 12)
+	const quinoa2= new Quinoa (altura = 1, anioDeObtencion = 2001, solToleradoPorCepa= 9)
+	const sojaT1 = new SojaTransgenica (altura = 2, anioDeObtencion = 2009)
+	const Hb1 = new Hierbabuena (altura = 0.3, anioDeObtencion = 2022)
 	
-	method initialize() {
-		menta1.valor(3)
-	}
 	
-	test "Menta - test de ejemplo" {
-		assert.equals(3, menta1.valor())
+	test "Menta1, horasDeSolToleradas 6 , no es fuerte, da Nuevas Semillas, espacio 3" {
+		
+		assert.notThat(menta1.esFuerte())
+		assert.that(menta1.daNuevasSemillas())
+		assert.equals(6, menta1.horasDeSolToleradas())
+		assert.equals(3, menta1.espacio())
 
 	}
-	
+	test "Menta2, horasDeSolToleradas 6 , no es fuerte, no da Nuevas Semillas, espacio 0.9" {
+		
+		assert.notThat(menta2.esFuerte())
+		assert.notThat(menta2.daNuevasSemillas())
+		assert.equals(6, menta2.horasDeSolToleradas())
+		assert.equals(0.9, menta2.espacio())
+
+	}
+	test "Soja1, horasDeSolToleradas 7 , no es fuerte, no da Nuevas Semillas, espacio 0.3"  {
+		
+		assert.notThat(soja1.esFuerte())
+		assert.notThat(soja1.daNuevasSemillas())
+		assert.equals(7, soja1.horasDeSolToleradas())
+		assert.equals(0.3, soja1.espacio())
+
+	}
+
+	test "quinoa1, horasDeSolToleradas 12 , es fuerte, da Nuevas Semillas, espacio 0.5"  {
+		
+		assert.that(quinoa1.esFuerte())
+		assert.that(quinoa1.daNuevasSemillas())
+		assert.equals(12, quinoa1.horasDeSolToleradas())
+		assert.equals(0.5, quinoa1.espacio())
+
+	}
+	test "quinoa2, horasDeSolToleradas 9 , es fuerte, da Nuevas Semillas, espacio 0.5"  {
+		
+		assert.notThat(quinoa2.esFuerte())
+		assert.that(quinoa2.daNuevasSemillas())
+		assert.equals(9, quinoa2.horasDeSolToleradas())
+		assert.equals(0.5, quinoa2.espacio())
+
+	}
+	test "SojaT1, horasDeSolToleradas 9 , no es fuerte, no da Nuevas Semillas, espacio 1"  {
+		
+		assert.notThat(sojaT1.esFuerte())
+		assert.notThat(sojaT1.daNuevasSemillas())
+		assert.equals(9, sojaT1.horasDeSolToleradas())
+		assert.equals(1, sojaT1.espacio())
+
+	}
+	test "Hb1, horasDeSolToleradas 6 , no es fuerte, da Nuevas Semillas, espacio 6" {
+		
+		assert.notThat(menta1.esFuerte())
+		assert.that(menta1.daNuevasSemillas())
+		assert.equals(6, menta1.horasDeSolToleradas())
+		assert.equals(3, menta1.espacio())
+
+	}
 }
 
 
