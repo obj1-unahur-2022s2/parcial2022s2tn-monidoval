@@ -5,6 +5,14 @@ object inta{
 	
 	const parcelasInta = []
 	
+	method incluirParcela(unaParcela){
+		parcelasInta.add(unaParcela)
+	}
+	
+	method cantidadDeParcelas(){return
+		parcelasInta.size()
+	}
+	
 	method promedioDePlantas(){return
 		parcelasInta.sum({p => p.cantidadTotalDePlantas() / parcelasInta.size()})
 		

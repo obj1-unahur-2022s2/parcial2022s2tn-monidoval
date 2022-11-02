@@ -25,13 +25,20 @@ class Parcela {
 		self.cantidadMaxima() == self.cantidadTotalDePlantas()
 	}
 	method cantidadTotalDePlantas(){return plantas.size()}
+	
 	method alturaSupera(unaAltura){return
 		plantas.any({p => p.altura() >= unaAltura})
 	}
 	method esParaMonocultivo(){return plantas.isEmpty()}
+	
 	method seAsociaBien(unaPlanta)
+	
 	method tieneMasDe(unaCantidadDePlantas){return
 		self.cantidadTotalDePlantas() > unaCantidadDePlantas
+	}
+	method cantidadDePlantasBienAsociadas(){return
+		plantas.count({p => self.seAsociaBien(p)})
+		
 	}
 		
 	
@@ -42,10 +49,7 @@ class ParcelaEcologica inherits Parcela{
 	override method seAsociaBien(unaPlanta){return
 		!self.tieneComplicaciones() and unaPlanta.esParcelaIdeal(self)
 	}
-	method cantidadDePlantasBienAsociadas(){return
-		plantas.count({p => self.seAsociaBien(p)})
-		
-	}
+	
 }
 
 class ParcelaIndustrial inherits Parcela{

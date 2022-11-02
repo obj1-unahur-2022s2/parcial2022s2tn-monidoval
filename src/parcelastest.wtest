@@ -4,6 +4,7 @@ import plantas.*
 describe "primer test de parcelas"{
 	
 	const parcelaE1 = new ParcelaEcologica (ancho= 20, largo = 1, horasDeSol = 8)
+	const parcelaI1 = new ParcelaIndustrial (ancho= 3, largo = 7,  horasDeSol= 5)
 	const soja2 = new Soja (altura = 2, anioDeObtencion = 2010)
 	const soja3 = new Soja (altura = 1.5, anioDeObtencion = 2009)
 	const soja4 = new Soja (altura = 1.8, anioDeObtencion = 2008)
@@ -27,7 +28,11 @@ describe "primer test de parcelas"{
 	
 	}
 		
+	test "parcelaI1, superficie 21, cantidad maximade plantas tolerada "{
 		
+		assert.equals(21, parcelaI1.superficie())
+		assert.equals(14 , parcelaI1.cantidadMaxima())
+	}
 	    
 	   
 	
