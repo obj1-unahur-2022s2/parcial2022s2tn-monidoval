@@ -1,3 +1,6 @@
+/*
+ * Recordá que al lanzar una excepción se corta el flujo del método. No era falta que estuviera el else en el método plantar(unaPlanta)
+ */
 import plantas.*
 
 class Parcela {
@@ -18,7 +21,7 @@ class Parcela {
 	}
 	method plantar(unaPlanta){
 		if(self.superaCantidadMaxima() or unaPlanta.noToleraSol(self))self.error("no se puede plantar")
-		else plantas.add(unaPlanta)
+		plantas.add(unaPlanta)
 	}
 	
 	method superaCantidadMaxima(){return
