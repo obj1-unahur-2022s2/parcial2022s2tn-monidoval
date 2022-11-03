@@ -1,3 +1,6 @@
+/*
+ * Faltaban los paréntesis  or (anioDeObtencion > 2007 and altura > 1)
+ */
 import parcelas.*
 
 class Planta{
@@ -44,7 +47,7 @@ class Soja inherits Planta{
 	}
 	
 	override method daNuevasSemillas(){return
-		super() or anioDeObtencion > 2007 and altura > 1
+		super() or (anioDeObtencion > 2007 and altura > 1)
 	}
 	override method espacio(){return 
 		altura * 0.5
